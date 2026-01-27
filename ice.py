@@ -1,5 +1,6 @@
 import pygame
 import random
+from constant import *
 
 class Ice:
     def __init__(self,x):
@@ -7,9 +8,9 @@ class Ice:
        self.x=x
        self.size=40
        self.letter="i"
-       self.speed=random.randint(2,7)
-       self.radius=30
-       self.color(173, 216, 230)
+       self.speed=random.randint(ICE_SPEED,7)
+       self.radius=ICE_RADIUS
+       self.color=LIGHT_BLUE
     
     def update(self):
         self.y+=self.speed
