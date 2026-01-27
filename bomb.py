@@ -1,14 +1,15 @@
 import pygame
 import random
+from constant import *
 
 class Bomb:
     def __init__(self, x):
         self.x=x
         self.y=0
         self.letter="b"
-        self.radius=30
-        self.color=(0,0,0)
-        self.speed=random.randint(2,7)
+        self.radius=BOMB_RADIUS
+        self.color=BLACK
+        self.speed=random.randint(BOMB_SPEED,7)
 
     def update(self):
         self.y+=self.speed  
@@ -21,7 +22,7 @@ class Bomb:
 
         pygame.draw.circle(screen,self.color,(self.x,self.y),self.radius)
         font=pygame.font.Font(None,40)
-        letter=font.render(self.letter, True,(255,0,0))
+        letter=font.render(self.letter, True,RED)
         letter_rect=letter.get_rect(center=(self.x,self.y))
         screen.blit(letter,letter_rect)
 
