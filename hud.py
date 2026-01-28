@@ -47,8 +47,8 @@ class hud:
         if time_left>0:
             seconds=time_left/1000
 
-            txt_freeze=self.font_medium.render(f"FREEZE:{seconds:.1f}s", True, WHITE)
-            screen.blit(txt_freeze, (10, 10))
+            txt_freeze=self.font_medium.render(f"FREEZE:{seconds:.1f}s", True, BLACK)
+            screen.blit(txt_freeze, (FREEZE_POSITION))
 
     def draw_all(self, screen, score, strikes, max_strikes, combo_count=0, freeze_time=0):
         """Draw all HUD elements at once"""
