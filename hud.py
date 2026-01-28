@@ -57,8 +57,4 @@ class hud:
         self.draw_combo(screen, combo_count)
         
         if freeze_time>0:
-<<<<<<< HEAD
-            self.draw_freeze_timer(screen,freeze_time)
-=======
             self.draw_freeze_timer(screen, freeze_time)
->>>>>>> feature/hud
