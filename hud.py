@@ -53,7 +53,3 @@ class hud:
         self.draw_combo(screen)
         if freeze_time>0:
             self.draw_freeze_timer(screen,freeze_time)
-
-
-
-
