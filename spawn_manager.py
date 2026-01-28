@@ -34,7 +34,7 @@ class SpawnManager:
 
         if rand<FRUIT_SPAWN_CHANCE:
             return Fruit(x,letter)
-        elif rand<FRUIT_SPAWN_CHANCE+BOMB_SPAWN_CHANCE:  # Fixed: was "rand<FRUIT+rand<BOMB"
+        elif rand<FRUIT_SPAWN_CHANCE+BOMB_SPAWN_CHANCE:
             return Bomb(x,"b")
         else:
             return Ice(x,"i")
