@@ -20,7 +20,7 @@ class Fruit :
         
     def draw( self ,screen):
         pygame.draw.circle(screen, self.color,(self.x ,self.y),self.radius)
-        font = pygame.font.Font(None,FONT_SIZE_MEDIUM)
+        font = pygame.font.Font("fruit_font.ttf",FONT_SIZE_MEDIUM)
         texte = font.render(self.letter , True , (0,0,0))
         texte_rect = texte.get_rect(center =(self.x , self.y))
         screen.blit(texte , texte_rect)

@@ -15,8 +15,6 @@ class Bomb:
         self.display_size=200
         self.radius=self.display_size//2
 
-        self.color=BLACK
-
         self.speed=random.randint(BOMB_SPEED, 7)
 
         #set bomb image and size it
@@ -36,7 +34,7 @@ class Bomb:
         image_rect = self.bomb_img.get_rect(center=(self.x, self.y))
         screen.blit(self.bomb_img, image_rect)
 
-        font=pygame.font.Font(None, 60)
+        font=pygame.font.Font("fruit_font.ttf", 60)
         letter=font.render(self.letter, True, BLACK)
         letter_rect=letter.get_rect(center=(self.x, self.y))
         screen.blit(letter, letter_rect)

@@ -3,9 +3,9 @@ from constant import *
 
 class hud:
     def __init__(self):
-        self.font_large=pygame.font.Font(None, FONT_SIZE_LARGE)
-        self.font_medium=pygame.font.Font(None, FONT_SIZE_MEDIUM)
-        self.font_small=pygame.font.Font(None, FONT_SIZE_SMALL)
+        self.font_large=pygame.font.Font("fruit_font.ttf", FONT_SIZE_LARGE)
+        self.font_medium=pygame.font.Font("fruit_font.ttf", FONT_SIZE_MEDIUM)
+        self.font_small=pygame.font.Font("fruit_font.ttf", FONT_SIZE_SMALL)
 
         self.heart_img=pygame.image.load("heart.png").convert_alpha()
         self.cross_img=pygame.image.load("cross.png").convert_alpha()
@@ -33,7 +33,7 @@ class hud:
                 screen.blit(self.cross_img,(x_pos,y))
             else:
                 screen.blit(self.heart_img,(x_pos,y))
-                
+
     def draw_combo(self, screen, combo_count):
         """Display combo message for 1 second when activated"""
         current_time=pygame.time.get_ticks()

@@ -7,13 +7,22 @@ class Ice:
     
     def __init__(self, x,letter):
         """Initialize ice cube at position x"""
-        self.y=0
+        self.y=SPAWN_Y
         self.x=x
+
         self.size=40
+
         self.letter=letter
+
         self.speed=random.randint(ICE_SPEED, 7)
-        self.radius=ICE_RADIUS
-        self.color=LIGHT_BLUE
+        
+        #set ice cube size
+        self.display_size=100
+        self.radius=self.display_size//2
+        
+        #set image and size it
+        self.ice_img=pygame.image.load("ice.png").convert_alpha()
+        self.ice_img = pygame.transform.scale(self.ice_img, (self.display_size,self.display_size))
     
     def update(self):
         """Move ice cube downward, return True if out of screen"""
@@ -25,10 +34,10 @@ class Ice:
     
     def draw(self, screen):
         """Draw ice cube as a light blue square with letter"""
-        square=pygame.Rect(self.x-self.size//2, self.y-self.size//2, self.size, self.size)
-        pygame.draw.rect(screen, self.color, square)
+        image_rect = self.ice_img.get_rect(center=(self.x, self.y))
+        screen.blit(self.ice_img, image_rect)
         
-        font=pygame.font.Font(None, 40)
+        font=pygame.font.Font("fruit_font.ttf", 40)
         letter=font.render(self.letter, True, (0, 0, 255))
         letter_rect=letter.get_rect(center=(self.x, self.y))
         screen.blit(letter, letter_rect)
