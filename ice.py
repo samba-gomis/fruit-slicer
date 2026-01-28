@@ -19,7 +19,7 @@ class Ice:
         """Move ice cube downward, return True if out of screen"""
         self.y+=self.speed
 
-        if self.y>600:
+        if self.y - self.radius > SCREEN_HEIGHT:
             return True
         return False
     

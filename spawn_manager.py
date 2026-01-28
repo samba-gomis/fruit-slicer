@@ -35,9 +35,9 @@ class SpawnManager:
         if rand<FRUIT_SPAWN_CHANCE:
             return Fruit(x,letter)
         elif rand<FRUIT_SPAWN_CHANCE+BOMB_SPAWN_CHANCE:
-            return Bomb(x,"b")
+            return Bomb(x)
         else:
-            return Ice(x,"i")
+            return Ice(x)
         
 
     def increase_difficulty(self,score):

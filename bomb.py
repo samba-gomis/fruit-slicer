@@ -17,12 +17,12 @@ class Bomb:
     def update(self):
         """Move bomb downward, return True if out of screen"""
         self.y+=self.speed  
-        if self.y>600:
+        if self.y - self.radius > SCREEN_HEIGHT:
             return True
         return False
     
     def draw(self, screen):
-        """Draw bomb as black circle with letter"""
+        """Draw bomb as a black circle with letter"""
         pygame.draw.circle(screen, self.color, (self.x, self.y), self.radius)
         font=pygame.font.Font(None, 40)
         letter=font.render(self.letter, True, RED)

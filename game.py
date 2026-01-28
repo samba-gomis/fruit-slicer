@@ -4,6 +4,8 @@ from constant import FREEZE_DURATION_MAX
 from constant import *
 from menu import Menu
 from game_over import GameOver
+from spawn_manager import *
+from hud import *
 
 
 class Game:
@@ -22,6 +24,7 @@ class Game:
         self.score = 0
         self.strikes = 0
         self.game_over_reason = "strikes"
+        self.hud=hud()
         
         # Game objects lists
         self.fruits = []
@@ -40,11 +43,7 @@ class Game:
         self.last_hit_times = []
         self.combo_display_time = 0
         self.current_combo = 0
-        
-        # Fonts for HUD
-        self.font_small = pygame.font.Font(None, FONT_SIZE_SMALL)
-        self.font_medium = pygame.font.Font(None, FONT_SIZE_MEDIUM)
-        self.font_large = pygame.font.Font(None, FONT_SIZE_LARGE)
+    
     
     def reset_game(self):
         self.score = 0
@@ -151,38 +150,15 @@ class Game:
         for ice in self.ices:
             ice.draw(self.screen)
         
-        # Draw HUD
-        self.draw_hud()
-        
         # Draw freeze indicator if active
+        freeze_time=0
+
         if self.is_frozen:
-            self.draw_freeze_indicator()
-        
-        # Draw combo if active
-        if self.combo_display_time > 0:
-            self.draw_combo()
-    
-    def draw_hud(self):
-        # Draw score
-        score_text = self.font_small.render(f"Score: {self.score}", True, BLACK)
-        self.screen.blit(score_text, SCORE_POSITION)
-        
-        # Draw strikes
-        strikes_text = self.font_small.render(f"Strikes: {self.strikes}/{MAX_STRIKES}", True, RED)
-        self.screen.blit(strikes_text, STRIKES_POSITION)
-    
-    def draw_freeze_indicator(self):
-        """Draw freeze time indicator"""
-        freeze_text = self.font_medium.render("FROZEN!", True, LIGHT_BLUE)
-        freeze_rect = freeze_text.get_rect(center=(SCREEN_WIDTH // 2, 50))
-        self.screen.blit(freeze_text, freeze_rect)
-    
-    def draw_combo(self):
-        """Draw combo indicator"""
-        combo_text = self.font_large.render(f"COMBO x{self.current_combo}!", True, ORANGE)
-        combo_rect = combo_text.get_rect(center=COMBO_POSITION)
-        self.screen.blit(combo_text, combo_rect)
-    
+           freeze_time=self.freeze_end_time-pygame.time.get_ticks()
+
+        # Draw score, strikes and combo
+        self.hud.draw_all(self.screen, self.score, self.strikes, MAX_STRIKES, self.current_combo, freeze_time)
+
     def handle_key_press(self, event):
         # Get the letter pressed (convert to uppercase)
         if event.unicode.isalpha():
@@ -194,7 +170,7 @@ class Game:
             
             # Check fruits
             for fruit in self.fruits:
-                if fruit.letter == letter:
+                if fruit.is_hit(letter):
                     hit_object = fruit
                     object_type = 'fruit'
                     self.fruits.remove(fruit)
@@ -229,7 +205,22 @@ class Game:
     
     def spawn_objects(self):
         """Spawn new objects based on timer"""
-        pass
+        if not hasattr(self, "spawn_manager"):
+            self.spawn_manager=SpawnManager()
+        
+        if self.spawn_manager.should_spawn():
+            obj=self.spawn_manager.spawn_object()
+
+            if obj.__class__.__name__=="Fruit":
+                self.fruits.append(obj)
+            elif obj.__class__.__name__=="Bomb":
+                self.bombs.append(obj)
+            elif obj.__class__.__name__=="Ice":
+                self.ices.append(obj)
+
+        self.spawn_manager.increase_difficulty(self.score)
+    
+
     
     def add_score(self):
         current_time = pygame.time.get_ticks()
