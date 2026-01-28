@@ -45,8 +45,7 @@ class hud:
         if current_time<self.combo_display_time:
             combo_text=self.font_large.render(f"COMBO X{combo_count}!", True, BLACK)
             screen.blit(combo_text, (COMBO_POSITION))
-        else:
-            self.combo_count=0      
+    
 
     def draw_freeze_timer(self, screen, time_left):
         """Display remaining freeze time in seconds"""
