@@ -7,7 +7,7 @@ class Fruit :
         self.x = x
         self.y = SPAWN_Y
         self.letter = letter 
-        self.speed = FRUIT_SPEED
+        self.speed =random.randint(FRUIT_SPEED,7)
         self.radius = FRUIT_RADIUS
         self.color =random.choice(FRUIT_COLORS)
     

@@ -5,12 +5,12 @@ from constant import *
 class Ice:
     """Represents an ice cube that freezes the game for 3 seconds if hit"""
     
-    def __init__(self, x):
+    def __init__(self, x,letter):
         """Initialize ice cube at position x"""
         self.y=0
         self.x=x
         self.size=40
-        self.letter="i"
+        self.letter=letter
         self.speed=random.randint(ICE_SPEED, 7)
         self.radius=ICE_RADIUS
         self.color=LIGHT_BLUE

@@ -5,11 +5,11 @@ from constant import *
 class Bomb:
     """Represents a bomb that triggers Game Over if hit"""
     
-    def __init__(self, x):
+    def __init__(self, x,letter):
         """Initialize bomb at position x"""
         self.x=x
         self.y=0
-        self.letter="b"
+        self.letter=letter
         self.radius=BOMB_RADIUS
         self.color=BLACK
         self.speed=random.randint(BOMB_SPEED, 7)
