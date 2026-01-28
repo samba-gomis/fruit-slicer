@@ -5,7 +5,6 @@ from fruit import Fruit
 from bomb import Bomb
 from ice import Ice
 
-
 class SpawnManager:
     def __init__(self):
        self.spawn_delay=SPAWN_DELAY  
@@ -36,9 +35,5 @@ class SpawnManager:
         
 
     def increase_difficulty(self,score):
-        difficulty_level=score//DIFFICULT_INCREASE_LEVEL
+        difficulty_level=score//DIFFICULTY_INCREASE_SCORE
         self.spawn_delay=max(MIN_SPAWN_DELAY,SPAWN_DELAY-(difficulty_level*SPAWN_DELAY_DECREASE))
-
-
-
-        
