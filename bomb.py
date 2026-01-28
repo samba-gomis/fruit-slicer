@@ -8,11 +8,20 @@ class Bomb:
     def __init__(self, x,letter):
         """Initialize bomb at position x"""
         self.x=x
-        self.y=0
+        self.y=SPAWN_Y
+
         self.letter=letter
-        self.radius=BOMB_RADIUS
+
+        self.display_size=200
+        self.radius=self.display_size//2
+
         self.color=BLACK
+
         self.speed=random.randint(BOMB_SPEED, 7)
+
+        #set bomb image and size it
+        self.bomb_img=pygame.image.load("bomb.png").convert_alpha()
+        self.bomb_img = pygame.transform.scale(self.bomb_img, (self.display_size,self.display_size))
 
     def update(self):
         """Move bomb downward, return True if out of screen"""
@@ -22,10 +31,13 @@ class Bomb:
         return False
     
     def draw(self, screen):
-        """Draw bomb as a black circle with letter"""
-        pygame.draw.circle(screen, self.color, (self.x, self.y), self.radius)
-        font=pygame.font.Font(None, 40)
-        letter=font.render(self.letter, True, RED)
+        """Import bomb image and place the assigned letter"""
+
+        image_rect = self.bomb_img.get_rect(center=(self.x, self.y))
+        screen.blit(self.bomb_img, image_rect)
+
+        font=pygame.font.Font(None, 60)
+        letter=font.render(self.letter, True, BLACK)
         letter_rect=letter.get_rect(center=(self.x, self.y))
         screen.blit(letter, letter_rect)
 
