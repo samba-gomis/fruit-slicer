@@ -1,6 +1,7 @@
 import pygame
 from constant import *
 
+
 class Menu:
     
     def __init__(self):
@@ -9,12 +10,12 @@ class Menu:
         self.font_medium = pygame.font.Font(None, FONT_SIZE_MEDIUM)
         self.font_small = pygame.font.Font(None, FONT_SIZE_SMALL)
         self.font_tiny = pygame.font.Font(None, FONT_SIZE_TINY)
+        self.background=pygame.image.load("background_menu.jpg")
+        self.background=pygame.transform.scale(self.background,(SCREEN_WIDTH, SCREEN_HEIGHT))
     
     def draw(self, screen):
-        
-        # Fill background
-        screen.fill(WHITE)
-        
+        screen.blit(self.background,(0,0))
+
         # Title
         title = self.font_large.render("FRUIT NINJA", True, RED)
         title_rect = title.get_rect(center=(SCREEN_WIDTH // 2, 100))

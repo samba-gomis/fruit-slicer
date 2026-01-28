@@ -7,6 +7,12 @@ class hud:
         self.font_medium=pygame.font.Font(None, FONT_SIZE_MEDIUM)
         self.font_small=pygame.font.Font(None, FONT_SIZE_SMALL)
 
+        self.heart_img=pygame.image.load("heart.png").convert_alpha()
+        self.cross_img=pygame.image.load("cross.png").convert_alpha()
+
+        self.heart_img = pygame.transform.scale(self.heart_img, (40, 40))
+        self.cross_img = pygame.transform.scale(self.cross_img, (40, 40))
+
         self.combo_display_time=0
         self.combo_count=0
 
@@ -21,13 +27,13 @@ class hud:
         y=10
         
         for i in range(max_strikes):
+            x_pos = x_start + i * 50
+
             if i<strikes:
-                txt_strike=self.font_medium.render("cross", True, RED)
+                screen.blit(self.cross_img,(x_pos,y))
             else:
-                txt_strike=self.font_medium.render("heart", True, RED)
-
-            screen.blit(txt_strike,(x_start+i*50,y))
-
+                screen.blit(self.heart_img,(x_pos,y))
+                
     def draw_combo(self, screen, combo_count):
         """Display combo message for 1 second when activated"""
         current_time=pygame.time.get_ticks()

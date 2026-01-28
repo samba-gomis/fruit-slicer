@@ -25,6 +25,10 @@ class Game:
         self.strikes = 0
         self.game_over_reason = "strikes"
         self.hud=hud()
+
+        #background
+        self.background=pygame.image.load("background_game.png")
+        self.background=pygame.transform.scale(self.background,(SCREEN_WIDTH, SCREEN_HEIGHT))
         
         # Game objects lists
         self.fruits = []
@@ -94,7 +98,7 @@ class Game:
             
             elif self.state == STATE_PLAYING:
                 self.update()
-                self.draw()
+                self.draw(self.screen)
             
             elif self.state == STATE_GAME_OVER:
                 self.game_over_screen.draw(self.screen, self.score, self.game_over_reason)
@@ -137,9 +141,9 @@ class Game:
         if self.combo_display_time > 0:
             self.combo_display_time -= 1
     
-    def draw(self):
-        self.screen.fill(WHITE)
-        
+    def draw(self,screen):
+        screen.blit(self.background,(0,0))
+
         # Draw all objects
         for fruit in self.fruits:
             fruit.draw(self.screen)
