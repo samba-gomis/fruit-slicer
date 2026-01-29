@@ -7,7 +7,6 @@ from game_over import GameOver
 from spawn_manager import *
 from hud import *
 
-
 class Game:
     
     def __init__(self, screen, clock):
@@ -108,7 +107,7 @@ class Game:
             self.clock.tick(FPS)
     
     def update(self):
-        """Update game logic"""
+        # Update game logic
         current_time = pygame.time.get_ticks()
         
         # Check freeze status
@@ -208,7 +207,7 @@ class Game:
                     self.trigger_freeze()
     
     def spawn_objects(self):
-        """Spawn new objects based on timer"""
+        # Spawn new objects based on timer
         if not hasattr(self, "spawn_manager"):
             self.spawn_manager=SpawnManager()
         
@@ -223,8 +222,6 @@ class Game:
                 self.ices.append(obj)
 
         self.spawn_manager.increase_difficulty(self.score)
-    
-
     
     def add_score(self):
         current_time = pygame.time.get_ticks()
@@ -248,7 +245,7 @@ class Game:
         self.score += 1
     
     def add_strike(self):
-        """Add a strike for missing a fruit"""
+        # Add a strike for missing a fruit
         self.strikes += 1
         
         # Check for game over
@@ -257,12 +254,12 @@ class Game:
             self.state = STATE_GAME_OVER
     
     def trigger_bomb(self):
-        """Handle bomb hit - instant game over"""
+        # Handle bomb hit - instant game over
         self.game_over_reason = "bomb"
         self.state = STATE_GAME_OVER
     
     def trigger_freeze(self):
-        """Handle ice hit - freeze time"""
+        # Handle ice hit - freeze time
         import random
         freeze_duration = random.randint(FREEZE_DURATION_MIN, FREEZE_DURATION_MAX)
         self.is_frozen = True

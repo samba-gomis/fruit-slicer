@@ -1,7 +1,6 @@
 import pygame
 from constant import *
 
-
 class Menu:
     
     def __init__(self):
@@ -26,32 +25,6 @@ class Menu:
         subtitle = self.font_medium.render("Typing Game", True, ORANGE)
         subtitle_rect = subtitle.get_rect(center=(SCREEN_WIDTH // 2, 170))
         screen.blit(subtitle, subtitle_rect)
-        
-        # Instructions
-        instructions = [
-            "HOW TO PLAY:",
-            "",
-            "- Type the letter on fruits to slice them",
-            "- Each fruit sliced = +1 point",
-            "- Slice multiple fruits at once for combos!",
-            "- Miss 3 fruits = Game Over",
-            "",
-            "SPECIAL ITEMS:",
-            "- ICE: Freezes time for 3-5 seconds",
-            "- BOMB: Instant Game Over!",
-            "",
-        ]
-        
-        y_offset = 240
-        for line in instructions:
-            if line.startswith("HOW TO PLAY") or line.startswith("SPECIAL"):
-                text = self.font_small.render(line, True, DARK_GRAY)
-            else:
-                text = self.font_tiny.render(line, True, BLACK)
-            
-            text_rect = text.get_rect(center=(SCREEN_WIDTH // 2, y_offset))
-            screen.blit(text, text_rect)
-            y_offset += 30
         
         start_text = self.font_medium.render("Press SPACE to Start", True, GREEN)
         start_rect = start_text.get_rect(center=(SCREEN_WIDTH // 2, SCREEN_HEIGHT - 80))

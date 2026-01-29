@@ -3,10 +3,10 @@ import random
 from constant import *
 
 class Bomb:
-    """Represents a bomb that triggers Game Over if hit"""
+    # Represents a bomb that triggers Game Over if hit
     
     def __init__(self, x,letter):
-        """Initialize bomb at position x"""
+        # Initialize bomb at position x
         self.x=x
         self.y=SPAWN_Y
 
@@ -22,14 +22,14 @@ class Bomb:
         self.bomb_img = pygame.transform.scale(self.bomb_img, (self.display_size,self.display_size))
 
     def update(self):
-        """Move bomb downward, return True if out of screen"""
+        # Move bomb downward, return True if out of screen
         self.y+=self.speed  
         if self.y - self.radius > SCREEN_HEIGHT:
             return True
         return False
     
     def draw(self, screen):
-        """Import bomb image and place the assigned letter"""
+        # Import bomb image and place the assigned letter
 
         image_rect = self.bomb_img.get_rect(center=(self.x, self.y))
         screen.blit(self.bomb_img, image_rect)
@@ -40,7 +40,7 @@ class Bomb:
         screen.blit(letter, letter_rect)
 
     def is_hit(self, key):
-        """Check if pressed key matches bomb's letter"""
+        # Check if pressed key matches bomb's letter
         if key==self.letter:
             return True
         return False
