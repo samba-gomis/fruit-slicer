@@ -14,12 +14,12 @@ class SoundManager:
         self.game_over_sound=pygame.mixer.Sound("game_over.wav")
 
         #set sounds volumes
-        self.slice_sound.set_volume(10)
-        self.bomb_sound.set_volume(10)
-        self.ice_sound.set_volume(10)
-        self.combo_sound.set_volume(10)
-        self.strike_sound.set_volume(10)
-        self.game_over_sound.set_volume(10)
+        self.slice_sound.set_volume(1)
+        self.bomb_sound.set_volume(1)
+        self.ice_sound.set_volume(1)
+        self.combo_sound.set_volume(1)
+        self.strike_sound.set_volume(1)
+        self.game_over_sound.set_volume(1)
 
         #set background loop music
         self.menu_music=("background_sound_menu.wav")
@@ -55,12 +55,14 @@ class SoundManager:
     def play_menu_music(self):
         if self.current_music!="menu":
             pygame.mixer.music.load(self.menu_music)
+            pygame.mixer.music.set_volume(0.1)
             pygame.mixer.music.play(-1)
             self.current_music="menu"
 
     def play_game_music(self):
          if self.current_music!="game":
             pygame.mixer.music.load(self.game_music)
+            pygame.mixer.music.set_volume(0.1)
             pygame.mixer.music.play(-1)
             self.current_music="game"
     
@@ -69,4 +71,4 @@ class SoundManager:
         self.current_music=None
     
     def music_volume(self):
-        pygame.mixer.music.set_volume(0.5)
+        pygame.mixer.music.set_volume(0.2)

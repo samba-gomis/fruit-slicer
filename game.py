@@ -26,10 +26,11 @@ class Game:
         self.game_over_reason = "strikes"
         self.hud=hud()
         self.sound_manager=SoundManager()
+        self.sound_manager.music_volume()
 
         #background
         self.background=pygame.image.load("assets/images/background_game.png")
-        self.background=pygame.transform.scale(self.background,(SCREEN_WIDTH, SCREEN_HEIGHT))
+        self.background = pygame.transform.smoothscale(self.background, (SCREEN_WIDTH, SCREEN_HEIGHT))
         
         # Game objects lists
         self.fruits = []
@@ -264,6 +265,7 @@ class Game:
             self.game_over_reason = "strikes"
             self.state = STATE_GAME_OVER
             self.sound_manager.sound_game_over()
+            self.sound_manager.stop_music()
     
     def trigger_bomb(self):
         # Handle bomb hit - instant game over
