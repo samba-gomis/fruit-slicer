@@ -6,6 +6,7 @@ from menu import Menu
 from game_over import GameOver
 from spawn_manager import *
 from hud import *
+from sound_manager import *
 
 class Game:
     
@@ -24,6 +25,7 @@ class Game:
         self.strikes = 0
         self.game_over_reason = "strikes"
         self.hud=hud()
+        self.sound_manager=SoundManager()
 
         #background
         self.background=pygame.image.load("assets/images/background_game.png")
@@ -72,10 +74,12 @@ class Game:
                 
                 # Handle input based on game state
                 if self.state == STATE_MENU:
+                    self.sound_manager.play_menu_music()
                     action = self.menu.handle_input(event)
                     if action == 'start':
                         self.reset_game()
                         self.state = STATE_PLAYING
+                        self.sound_manager.play_game_music()
                     elif action == 'quit':
                         self.running = False
                 
@@ -84,10 +88,12 @@ class Game:
                         self.handle_key_press(event)
                 
                 elif self.state == STATE_GAME_OVER:
+                    self.sound_manager.stop_music()
                     action = self.game_over_screen.handle_input(event)
                     if action == 'restart':
                         self.reset_game()
                         self.state = STATE_PLAYING
+                        self.sound_manager.play_game_music()
                     elif action == 'quit':
                         self.running = False
             
@@ -200,10 +206,13 @@ class Game:
             # Process the hit
             if hit_object:
                 if object_type == 'fruit':
+                    self.sound_manager.sound_slice()
                     self.add_score()
                 elif object_type == 'bomb':
+                    self.sound_manager.sound_bomb()
                     self.trigger_bomb()
                 elif object_type == 'ice':
+                    self.sound_manager.sound_ice()
                     self.trigger_freeze()
     
     def spawn_objects(self):
@@ -240,6 +249,7 @@ class Game:
             self.score += bonus
             self.current_combo = combo_count
             self.combo_display_time = 60  # Display for 1 second at 60 FPS
+            self.sound_manager.sound_combo()
         
         # Always add base point
         self.score += 1
@@ -247,16 +257,19 @@ class Game:
     def add_strike(self):
         # Add a strike for missing a fruit
         self.strikes += 1
+        self.sound_manager.sound_strike()
         
         # Check for game over
         if self.strikes >= MAX_STRIKES:
             self.game_over_reason = "strikes"
             self.state = STATE_GAME_OVER
+            self.sound_manager.sound_game_over()
     
     def trigger_bomb(self):
         # Handle bomb hit - instant game over
         self.game_over_reason = "bomb"
         self.state = STATE_GAME_OVER
+        self.sound_manager.sound_game_over()
     
     def trigger_freeze(self):
         # Handle ice hit - freeze time
