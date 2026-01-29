@@ -6,12 +6,12 @@ class SoundManager:
         pygame.mixer.init()
         
         #import sounds files
-        self.slice_sound=pygame.mixer.Sound("slice.mp3")
-        self.bomb_sound=pygame.mixer.Sound("bomb.wav")
-        self.ice_sound=pygame.mixer.Sound("ice.wav")
-        self.combo_sound=pygame.mixer.Sound("combo.mp3")
-        self.strike_sound=pygame.mixer.Sound("miss.wav")
-        self.game_over_sound=pygame.mixer.Sound("game_over.wav")
+        self.slice_sound=pygame.mixer.Sound("assets/sounds/slice.mp3")
+        self.bomb_sound=pygame.mixer.Sound("assets/sounds/bomb.wav")
+        self.ice_sound=pygame.mixer.Sound("assets/sounds/ice.wav")
+        self.combo_sound=pygame.mixer.Sound("assets/sounds/combo.mp3")
+        self.strike_sound=pygame.mixer.Sound("assets/sounds/miss.wav")
+        self.game_over_sound=pygame.mixer.Sound("assets/sounds/game_over.wav")
 
         #set sounds volumes
         self.slice_sound.set_volume(1)
@@ -22,8 +22,8 @@ class SoundManager:
         self.game_over_sound.set_volume(1)
 
         #set background loop music
-        self.menu_music=("background_sound_menu.wav")
-        self.game_music=("background_sound_game.wav")
+        self.menu_music=("assets/sounds/background_sound_menu.wav")
+        self.game_music=("assets/sounds/background_sound_game.wav")
         self.current_music=None
 
     #play each sounds

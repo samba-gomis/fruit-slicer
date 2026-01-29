@@ -1,11 +1,11 @@
 import pygame
-from constant import *
+from src.constant import *
 
 class hud:
     def __init__(self):
-        self.font_large=pygame.font.Font("fruit_font.ttf", FONT_SIZE_LARGE)
-        self.font_medium=pygame.font.Font("fruit_font.ttf", FONT_SIZE_MEDIUM)
-        self.font_small=pygame.font.Font("fruit_font.ttf", FONT_SIZE_SMALL)
+        self.font_large=pygame.font.Font("assets/fonts/fruit_font.ttf", FONT_SIZE_LARGE)
+        self.font_medium=pygame.font.Font("assets/fonts/fruit_font.ttf", FONT_SIZE_MEDIUM)
+        self.font_small=pygame.font.Font("assets/fonts/fruit_font.ttf", FONT_SIZE_SMALL)
 
         self.heart_img=pygame.image.load("assets/images/heart.png").convert_alpha()
         self.cross_img=pygame.image.load("assets/images/cross.png").convert_alpha()

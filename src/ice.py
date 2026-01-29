@@ -1,6 +1,6 @@
 import pygame
 import random
-from constant import *
+from src.constant import *
 
 class Ice:
     # Represents an ice cube that freezes the game for 3 seconds if hit
@@ -37,7 +37,7 @@ class Ice:
         image_rect = self.ice_img.get_rect(center=(self.x, self.y))
         screen.blit(self.ice_img, image_rect)
         
-        font=pygame.font.Font("fruit_font.ttf", 40)
+        font=pygame.font.Font("assets/fonts/fruit_font.ttf", 40)
         letter=font.render(self.letter, True, (0, 0, 255))
         letter_rect=letter.get_rect(center=(self.x, self.y))
         screen.blit(letter, letter_rect)

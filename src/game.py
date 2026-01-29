@@ -1,12 +1,12 @@
 import pygame
 import sys
-from constant import FREEZE_DURATION_MAX
-from constant import *
-from menu import Menu
-from game_over import GameOver
-from spawn_manager import *
-from hud import *
-from sound_manager import *
+from src.constant import FREEZE_DURATION_MAX
+from src.constant import *
+from src.menu import Menu
+from src.game_over import GameOver
+from src.spawn_manager import *
+from src.hud import *
+from src.sound_manager import *
 
 class Game:
     

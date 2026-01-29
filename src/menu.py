@@ -1,14 +1,14 @@
 import pygame
-from constant import *
+from src.constant import *
 
 class Menu:
     
     def __init__(self):
       
-        self.font_large=pygame.font.Font("fruit_font.ttf",FONT_SIZE_LARGE)
-        self.font_medium=pygame.font.Font("fruit_font.ttf",FONT_SIZE_MEDIUM)
-        self.font_small=pygame.font.Font("fruit_font.ttf",FONT_SIZE_SMALL)
-        self.font_tiny=pygame.font.Font("fruit_font.ttf",FONT_SIZE_TINY)
+        self.font_large=pygame.font.Font("assets/fonts/fruit_font.ttf",FONT_SIZE_LARGE)
+        self.font_medium=pygame.font.Font("assets/fonts/fruit_font.ttf",FONT_SIZE_MEDIUM)
+        self.font_small=pygame.font.Font("assets/fonts/fruit_font.ttf",FONT_SIZE_SMALL)
+        self.font_tiny=pygame.font.Font("assets/fonts/fruit_font.ttf",FONT_SIZE_TINY)
 
         self.background=pygame.image.load("assets/images/background_menu.jpg").convert()
         self.background = pygame.transform.smoothscale(self.background, (SCREEN_WIDTH, SCREEN_HEIGHT))
