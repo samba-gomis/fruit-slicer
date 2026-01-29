@@ -19,7 +19,7 @@ class Ice:
         self.radius=self.display_size//2
         
         # Set image and size it
-        self.ice_img=pygame.image.load("ice.png").convert_alpha()
+        self.ice_img=pygame.image.load("assets/images/ice.png").convert_alpha()
         self.ice_img = pygame.transform.scale(self.ice_img, (self.display_size,self.display_size))
     
     def update(self):

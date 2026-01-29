@@ -26,7 +26,7 @@ class Game:
         self.hud=hud()
 
         #background
-        self.background=pygame.image.load("background_game.png")
+        self.background=pygame.image.load("assets/images/background_game.png")
         self.background=pygame.transform.scale(self.background,(SCREEN_WIDTH, SCREEN_HEIGHT))
         
         # Game objects lists

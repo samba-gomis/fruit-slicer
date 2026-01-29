@@ -7,8 +7,8 @@ class hud:
         self.font_medium=pygame.font.Font("fruit_font.ttf", FONT_SIZE_MEDIUM)
         self.font_small=pygame.font.Font("fruit_font.ttf", FONT_SIZE_SMALL)
 
-        self.heart_img=pygame.image.load("heart.png").convert_alpha()
-        self.cross_img=pygame.image.load("cross.png").convert_alpha()
+        self.heart_img=pygame.image.load("assets/images/heart.png").convert_alpha()
+        self.cross_img=pygame.image.load("assets/images/cross.png").convert_alpha()
 
         self.heart_img = pygame.transform.scale(self.heart_img, (40, 40))
         self.cross_img = pygame.transform.scale(self.cross_img, (40, 40))

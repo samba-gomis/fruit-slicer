@@ -19,7 +19,7 @@ class Bomb:
         self.speed_x = random.randint(SPEED_X_MIN * 10, SPEED_X_MAX * 10) / 10  # horizontal trajectory
 
         #set bomb image and size it
-        self.bomb_img=pygame.image.load("bomb.png").convert_alpha()
+        self.bomb_img=pygame.image.load("assets/images/bomb.png").convert_alpha()
         self.bomb_img = pygame.transform.scale(self.bomb_img, (self.display_size,self.display_size))
 
     def update(self):
