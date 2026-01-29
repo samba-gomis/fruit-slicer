@@ -18,8 +18,10 @@ class hud:
 
     def draw_score(self, screen, score):
         # Display current score in top-left corner
-        txt_score=self.font_medium.render(f"Score: {score}", True, BLACK)
-        screen.blit(txt_score, (SCORE_POSITION))
+         score_color=GREEN if score<=20 else (ORANGE if score<=50 else RED)
+         txt_score=self.font_medium.render(f"Score: {score}", True, score_color)
+         screen.blit(txt_score, (SCORE_POSITION))
+
 
     def draw_strikes(self, screen, strikes, max_strikes):
         # Display remaining lives/hearts in top-right corner
@@ -43,7 +45,7 @@ class hud:
             self.combo_display_time=current_time+1000 
 
         if current_time<self.combo_display_time:
-            combo_text=self.font_large.render(f"COMBO X{combo_count}!", True, BLACK)
+            combo_text=self.font_large.render(f"COMBO X{combo_count}!", True,PURPLE )
             screen.blit(combo_text, (COMBO_POSITION))
     
     def draw_freeze_timer(self, screen, time_left):
@@ -51,7 +53,7 @@ class hud:
         if time_left>0:
             seconds=time_left/1000
 
-            txt_freeze=self.font_medium.render(f"FREEZE:{seconds:.1f}s", True, BLACK)
+            txt_freeze=self.font_medium.render(f"FREEZE:{seconds:.1f}s", True, LIGHT_BLUE)
             screen.blit(txt_freeze, (FREEZE_POSITION))
 
     def draw_all(self, screen, score, strikes, max_strikes, combo_count=0, freeze_time=0):
