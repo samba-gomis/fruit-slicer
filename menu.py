@@ -10,7 +10,7 @@ class Menu:
         self.font_small=pygame.font.Font("fruit_font.ttf",FONT_SIZE_SMALL)
         self.font_tiny=pygame.font.Font("fruit_font.ttf",FONT_SIZE_TINY)
 
-        self.background=pygame.image.load("assets/images/background_menu.jpg")
+        self.background=pygame.image.load("assets/images/background_menu.jpg").convert()
         self.background=pygame.transform.scale(self.background,(SCREEN_WIDTH, SCREEN_HEIGHT))
     
     def draw(self, screen):
