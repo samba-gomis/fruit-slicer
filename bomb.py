@@ -15,16 +15,19 @@ class Bomb:
         self.display_size=200
         self.radius=self.display_size//2
 
-        self.speed=random.randint(BOMB_SPEED, 7)
+        self.speed_y = -random.randint(BOMB_SPEED, 7)  # negative to move upward
+        self.speed_x = random.randint(SPEED_X_MIN * 10, SPEED_X_MAX * 10) / 10  # horizontal trajectory
 
         #set bomb image and size it
         self.bomb_img=pygame.image.load("bomb.png").convert_alpha()
         self.bomb_img = pygame.transform.scale(self.bomb_img, (self.display_size,self.display_size))
 
     def update(self):
-        # Move bomb downward, return True if out of screen
-        self.y+=self.speed  
-        if self.y - self.radius > SCREEN_HEIGHT:
+        # Move bomb upward with horizontal trajectory, return True if out of screen
+        self.y += self.speed_y
+        self.x += self.speed_x
+        # Check if out of screen (top or sides)
+        if self.y + self.radius < 0 or self.x < -self.radius or self.x > SCREEN_WIDTH + self.radius:
             return True
         return False
     

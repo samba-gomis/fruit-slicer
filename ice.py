@@ -11,7 +11,8 @@ class Ice:
         self.x=x
         self.size=40
         self.letter=letter
-        self.speed=random.randint(ICE_SPEED, 7)
+        self.speed_y = -random.randint(ICE_SPEED, 7)  # negative to move upward
+        self.speed_x = random.randint(SPEED_X_MIN * 10, SPEED_X_MAX * 10) / 10  # horizontal trajectory
         
         # Set ice cube size
         self.display_size=100
@@ -22,10 +23,12 @@ class Ice:
         self.ice_img = pygame.transform.scale(self.ice_img, (self.display_size,self.display_size))
     
     def update(self):
-        # Move ice cube downward, return True if out of screen
-        self.y+=self.speed
-
-        if self.y - self.radius > SCREEN_HEIGHT:
+        # Move ice cube upward with horizontal trajectory, return True if out of screen
+        self.y += self.speed_y
+        self.x += self.speed_x
+        
+        # Check if out of screen (top or sides)
+        if self.y + self.radius < 0 or self.x < -self.radius or self.x > SCREEN_WIDTH + self.radius:
             return True
         return False
     

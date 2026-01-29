@@ -32,7 +32,9 @@ ICE_SPEED = 3
 SPAWN_DELAY = 1500  # milliseconds between spawns
 SPAWN_X_MIN = 50  # minimum X position for spawn
 SPAWN_X_MAX = SCREEN_WIDTH - 50  # maximum X position for spawn
-SPAWN_Y = -50  # spawn above screen
+SPAWN_Y = SCREEN_HEIGHT + 50  # spawn below screen
+SPEED_X_MIN = -2  # minimum horizontal speed
+SPEED_X_MAX = 2  # maximum horizontal speed
 
 # Spawn probabilities (must sum to 100)
 FRUIT_SPAWN_CHANCE = 70  # 70% chance

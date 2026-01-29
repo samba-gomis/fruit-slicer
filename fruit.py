@@ -7,13 +7,16 @@ class Fruit :
         self.x = x
         self.y = SPAWN_Y
         self.letter = letter 
-        self.speed =random.randint(FRUIT_SPEED,7)
+        self.speed_y = -random.randint(FRUIT_SPEED, 7)  # negative to move upward
+        self.speed_x = random.randint(SPEED_X_MIN * 10, SPEED_X_MAX * 10) / 10  # horizontal trajectory
         self.radius = FRUIT_RADIUS
-        self.color =random.choice(FRUIT_COLORS)
+        self.color = random.choice(FRUIT_COLORS)
     
     def update(self):
-        self.y += self.speed
-        if self.y - self.radius > SCREEN_HEIGHT: 
+        self.y += self.speed_y
+        self.x += self.speed_x
+        # Check if out of screen (top or sides)
+        if self.y + self.radius < 0 or self.x < -self.radius or self.x > SCREEN_WIDTH + self.radius:
             return True
         else:
             return False
