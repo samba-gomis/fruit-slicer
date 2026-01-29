@@ -1,19 +1,19 @@
 import pygame
-from constant import *
+from src.constant import *
 
 class GameOver:
     
     def __init__(self):
-        self.font_large = pygame.font.Font("fruit_font.ttf", FONT_SIZE_LARGE)
-        self.font_medium = pygame.font.Font("fruit_font.ttf", FONT_SIZE_MEDIUM)
-        self.font_small = pygame.font.Font("fruit_font.ttf", FONT_SIZE_SMALL)
-        self.font_tiny = pygame.font.Font("fruit_font.ttf", FONT_SIZE_TINY)
+        self.font_large = pygame.font.Font("assets/fonts/fruit_font.ttf", FONT_SIZE_LARGE)
+        self.font_medium = pygame.font.Font("assets/fonts/fruit_font.ttf", FONT_SIZE_MEDIUM)
+        self.font_small = pygame.font.Font("assets/fonts/fruit_font.ttf", FONT_SIZE_SMALL)
+        self.font_tiny = pygame.font.Font("assets/fonts/fruit_font.ttf", FONT_SIZE_TINY)
     
     def draw(self, screen, final_score, reason="strikes"):
     
         # Fill background
         self.background=pygame.image.load("assets/images/background_game.png")
-        self.background=pygame.transform.scale(self.background,(SCREEN_WIDTH, SCREEN_HEIGHT))
+        self.background = pygame.transform.smoothscale(self.background, (SCREEN_WIDTH, SCREEN_HEIGHT))
         screen.blit(self.background, (0, 0))
         
         # Game Over title

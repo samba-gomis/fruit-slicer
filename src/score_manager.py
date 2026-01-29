@@ -1,5 +1,5 @@
 import time
-from constant import MAX_STRIKES, COMBO_TIME_WINDOW
+from src.constant import MAX_STRIKES, COMBO_TIME_WINDOW
 
 class ScoreManager:
     def __init__(self):

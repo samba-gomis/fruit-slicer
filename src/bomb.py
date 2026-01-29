@@ -1,6 +1,6 @@
 import pygame
 import random
-from constant import *
+from src.constant import *
 
 class Bomb:
     # Represents a bomb that triggers Game Over if hit
@@ -37,7 +37,7 @@ class Bomb:
         image_rect = self.bomb_img.get_rect(center=(self.x, self.y))
         screen.blit(self.bomb_img, image_rect)
 
-        font=pygame.font.Font("fruit_font.ttf", 60)
+        font=pygame.font.Font("assets/fonts/fruit_font.ttf", 60)
         letter=font.render(self.letter, True, BLACK)
         letter_rect=letter.get_rect(center=(self.x, self.y))
         screen.blit(letter, letter_rect)

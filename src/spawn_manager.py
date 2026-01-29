@@ -1,9 +1,9 @@
 import pygame
 import random
-from constant import *
-from fruit import Fruit
-from bomb import Bomb
-from ice import Ice
+from src.constant import *
+from src.fruit import Fruit
+from src.bomb import Bomb
+from src.ice import Ice
 
 class SpawnManager:
     # Manages spawning of game objects with timing and difficulty scaling

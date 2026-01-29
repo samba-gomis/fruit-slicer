@@ -1,7 +1,7 @@
 import pygame
 import sys
-from constant import SCREEN_WIDTH, SCREEN_HEIGHT, FPS
-from game import Game
+from src.constant import SCREEN_WIDTH, SCREEN_HEIGHT, FPS
+from src.game import Game
 
 def main():
     
