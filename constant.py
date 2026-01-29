@@ -22,6 +22,9 @@ FRUIT_COLORS = [RED, GREEN, ORANGE, PURPLE]
 FRUIT_RADIUS = 30
 BOMB_RADIUS = 30
 ICE_RADIUS = 30
+# Fruit image settings
+FRUIT_DISPLAY_SIZE = 64  # pixel size to scale fruit images to
+FRUIT_IMAGES_DIR = "assets/images/fruits"  # folder to place fruit PNG/JPG files
 
 # Speed settings
 FRUIT_SPEED = 3
