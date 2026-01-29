@@ -17,8 +17,8 @@ class SoundManager:
         self.slice_sound.set_volume(1)
         self.bomb_sound.set_volume(1)
         self.ice_sound.set_volume(1)
-        self.combo_sound.set_volume(1)
-        self.strike_sound.set_volume(1)
+        self.combo_sound.set_volume(0.5)
+        self.strike_sound.set_volume(0.5)
         self.game_over_sound.set_volume(1)
 
         #set background loop music
