@@ -3,11 +3,10 @@ import random
 from src.constant import*
 
 FRUIT_IMAGES = [
-   # pygame.image.load("fruit-slicer/assets/images/Apricot.png"),
+    pygame.image.load("./assets/images/Apricot.png"),
     pygame.image.load("./assets/images/Avocado.png"),
     pygame.image.load("./assets/images/Banana.png"),
     pygame.image.load("./assets/images/Black_Grapes.png"),
-    pygame.image.load("./assets/images/Black-Grapes.png"),
     pygame.image.load("./assets/images/Blueberry.png"),
     pygame.image.load("./assets/images/Cantaloupe.png"),
     pygame.image.load("./assets/images/Cherries.png"),
@@ -26,11 +25,7 @@ FRUIT_IMAGES = [
     pygame.image.load("./assets/images/Strawberry.png"),
     pygame.image.load("./assets/images/Watermelon.png"),
     pygame.image.load("./assets/images/Yellow_Pear.png"),
-    
-
 ]
-
-
 
 
 class Fruit :

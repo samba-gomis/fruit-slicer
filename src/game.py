@@ -50,7 +50,6 @@ class Game:
         self.combo_display_time = 0
         self.current_combo = 0
     
-    
     def reset_game(self):
         self.score = 0
         self.strikes = 0
