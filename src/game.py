@@ -23,7 +23,7 @@ class Game:
         self.score = 0
         self.strikes = 0
         self.game_over_reason = "strikes"
-        self.hud=hud()
+        self.hud=Hud()
         self.sound_manager=SoundManager()
         self.sound_manager.music_volume()
 
