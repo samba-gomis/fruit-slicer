@@ -1,7 +1,7 @@
 import pygame
 from src.constant import *
 
-class hud:
+class Hud:
     def __init__(self):
         self.font_large=pygame.font.Font("assets/fonts/fruit_font.ttf", FONT_SIZE_LARGE)
         self.font_medium=pygame.font.Font("assets/fonts/fruit_font.ttf", FONT_SIZE_MEDIUM)

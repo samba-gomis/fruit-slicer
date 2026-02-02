@@ -1,5 +1,4 @@
 import pygame
-import sys
 from src.constant import FREEZE_DURATION_MAX
 from src.constant import *
 from src.menu import Menu
