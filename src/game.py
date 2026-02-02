@@ -25,7 +25,6 @@ class Game:
         self.game_over_reason = "strikes"
         self.hud=Hud()
         self.sound_manager=SoundManager()
-        self.sound_manager.music_volume()
 
         #background
         self.background=pygame.image.load("assets/images/background_game.png")

@@ -69,6 +69,3 @@ class SoundManager:
     def stop_music(self):
         pygame.mixer.music.stop()
         self.current_music=None
-    
-    def music_volume(self):
-        pygame.mixer.music.set_volume(0.2)
