@@ -9,8 +9,9 @@ class Ice:
         # Initialize ice cube at position x
         self.y=SPAWN_Y
         self.x=x
-        self.size=40
+        
         self.letter=letter
+        
         self.speed_y = -random.randint(ICE_SPEED, 7)  # negative to move upward
         self.speed_x = random.randint(SPEED_X_MIN * 10, SPEED_X_MAX * 10) / 10  # horizontal trajectory
         
